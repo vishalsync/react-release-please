@@ -15,7 +15,15 @@ pre-commit:
     - name: delete-stale-changeset
       run: |
         echo "🧹 Removing old .changeset/*.md files..."
-        find .changeset -type f -name "*.md" -delete
+        find .changeset -type f -name "*.md" ! -name "README.md" -delete
       file_types:
         - md
+      exclude:
+        - .changesets/README.md
       fail_text: "❌ You have stale .changeset/*.md files. Clean them up!"
+
+    - name: open-changeset-cli
+      run: |
+        echo "📦 Prompting for changeset..."
+        npx @changesets/cli
+      interactive: true
