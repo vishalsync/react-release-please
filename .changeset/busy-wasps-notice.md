@@ -1,5 +1,0 @@
----
-"dummyblog": patch
----
-
-testing
