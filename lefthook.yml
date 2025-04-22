@@ -1,0 +1,11 @@
+commit-msg:
+  jobs:
+    - name: Validate Commit Message Format
+      run: npx commitlint --edit
+      fail_text: |
+        ❌ Commit message does not follow Conventional Commit format.
+
+        👉 To fix this, use the guided commit command:
+          npm run commit
+           
+        📘 Example: feat(login): add user authentication
