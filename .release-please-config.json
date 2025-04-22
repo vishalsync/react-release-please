@@ -1,5 +1,6 @@
 {
   "release-type": "node",
   "package-name": "dummyblog",
-  "include-v-in-tag": true
+  "include-v-in-tag": true,
+  "path": "."
 }
