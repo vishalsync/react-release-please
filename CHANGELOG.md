@@ -1,5 +1,11 @@
 # dummyblog
 
+## 2.0.0
+
+### Major Changes
+
+- e8b024a: doing testing trying to understand the concept
+
 ## 1.0.0
 
 ### Major Changes
