@@ -1,5 +1,11 @@
 # dummyblog
 
+## 3.0.0
+
+### Major Changes
+
+- 69a7e44: create dev and feature/\* branch to test the changesets flow
+
 ## 2.1.0
 
 ### Minor Changes
