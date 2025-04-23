@@ -1,5 +1,11 @@
 # dummyblog
 
+## 2.1.0
+
+### Minor Changes
+
+- a944d69: this is minour version testing it
+
 ## 2.0.0
 
 ### Major Changes
