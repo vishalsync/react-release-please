@@ -1,10 +1,10 @@
 # dummyblog
 
-## 1.1.0
+## 2.0.0
 
-### Minor Changes
+### Major Changes
 
-- a944d69: this is minour version testing it
+- e8b024a: doing testing trying to understand the concept
 
 ## 1.0.0
 
