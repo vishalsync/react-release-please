@@ -9,3 +9,15 @@ commit-msg:
           npm run commit
            
         📘 Example: feat(login): add user authentication
+
+pre-commit:
+  jobs:
+    - name: delete-stale-changeset
+      run: |
+        echo "🧹 Removing old .changeset/*.md files..."
+        find .changeset -type f -name "*.md" ! -name "README.md" -delete
+      file_types:
+        - md
+      exclude:
+        - .changesets/README.md
+      fail_text: "❌ You have stale .changeset/*.md files. Clean them up!"
