@@ -1,0 +1,42 @@
+name: 🚀 Release Tag + GitHub Release + Slack Notify
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  CreateGitTagAndGitHub:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v3
+        with:
+          node-version: "18"
+      - run: npm ci
+
+      # - name: Version & Commit
+      #   run: |
+      #     git config user.name "github-actions[bot]"
+      #     git config user.email "github-actions[bot]@users.noreply.github.com"
+      #     npx changeset version
+      #     git commit -am "chore: apply release version"
+      #     git push
+
+      - name: Create Git Tag & GitHub Release
+        run: |
+          VERSION=$(jq -r '.version' package.json)
+          git tag v$VERSION
+          git push origin v$VERSION
+          gh release create v$VERSION --title "v$VERSION" --notes-file CHANGELOG.md
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      # - name: Notify Slack
+      #   uses: slackapi/slack-github-action@v1.24.0
+      #   with:
+      #     payload: |
+      #       {
+      #         "text": "🚀 *New Release: v${{ steps.version.outputs.version }}*\n\nSee the [changelog](https://github.com/<your-org>/<your-repo>/releases/tag/v${{ steps.version.outputs.version }})\n\nNote: Deployment is manual and not triggered yet."
+      #       }
+      #   env:
+      #     SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
