@@ -1,0 +1,20 @@
+name: 📦 Create Version PR
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  version:
+    runs-on: "ubuntu-latest"
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v3
+        with:
+          node-version: "20"
+      - run: npm ci
+      - uses: changesets/actions@v1
+        with:
+          publish: false
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
