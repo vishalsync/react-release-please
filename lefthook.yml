@@ -21,9 +21,3 @@ pre-commit:
       exclude:
         - .changesets/README.md
       fail_text: "❌ You have stale .changeset/*.md files. Clean them up!"
-
-    - name: open-changeset-cli
-      run: |
-        echo "📦 Prompting for changeset..."
-        npx @changesets/cli
-      interactive: true

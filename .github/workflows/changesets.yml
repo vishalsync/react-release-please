@@ -10,10 +10,10 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      - uses: pnpm/action-setup@v2
+      - uses: npm/action-setup@v2
         with:
           version: 8
-      - run: pnpm install
+      - run: npm install
 
       - name: Create Version Pull Request
         uses: changesets/action@v1
